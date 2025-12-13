@@ -7,7 +7,7 @@ var logoMain1 = "#ffffff";
 
 function drawLogo(){
   // get canvas and context
-  var c = document.getElementById("steamLogo");
+  var c = document.getElementById("steamLogoCanvas");
   var ctx = c.getContext("2d");
 
   // set the canvas size so the logo fits into it
@@ -84,8 +84,8 @@ function drawLogo(){
 
   // bottom left handle (above all elements of the logo)
   ctx.beginPath();
-  ctx.moveTo(size*0.371, size*0.620);
-  ctx.lineTo(size*0.313, size*0.771);
+  ctx.moveTo(size*0.371, size*0.619);
+  ctx.lineTo(size*0.313, size*0.7735);
   ctx.lineTo(size*0.023, size*0.652);
   ctx.lineTo(size*0.017, size*0.632);
   ctx.lineTo(size*0.011, size*0.606);

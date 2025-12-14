@@ -1,11 +1,36 @@
 // logo vars
-var size = 1000;
+var size = 300;
 var logoTopColor = "#01050e";
 var logoBottomColor = "#007db2";
 var logoMain0 = "#000000";
 var logoMain1 = "#ffffff";
 
-function drawLogo(){
+// svg elements
+const steam_logo_svg = document.getElementById("steamLogoSVG");
+const handle_circles = document.getElementById("handle_circles");
+const handles = document.getElementById("handles");
+const outer_section = document.getElementById("outer_section");
+const topGradColor = document.getElementById("topSvgColor");
+const bottomGradColor = document.getElementById("bottomSvgColor");
+
+// png element
+const steam_logo_png = document.getElementById("steamLogoPNG");
+
+function updateSVG() {
+  steam_logo_svg.setAttribute("width", size);
+  steam_logo_svg.setAttribute("height", size);
+  handle_circles.setAttribute("fill", logoMain0);
+  handles.setAttribute("fill", logoMain1);
+  topGradColor.setAttribute("stop-color", logoTopColor);
+  bottomGradColor.setAttribute("stop-color", logoBottomColor);
+}
+
+function updatePNG() {
+  steam_logo_png.width = size;
+  steam_logo_png.height = size;
+}
+
+function updateCANVS() {
   // get canvas and context
   var c = document.getElementById("steamLogoCanvas");
   var ctx = c.getContext("2d");
@@ -99,5 +124,19 @@ function drawLogo(){
   ctx.fill();
 }
 
+function showLogo(logoId, divId) {
+  const parentDiv = document.getElementById(divId);
+  const logo = document.getElementById(logoId);
+
+  // hides all children of the parent div
+  Array.from(parentDiv.children).forEach(child => {
+    child.style.display = "none";
+  });
+
+  logo.style.display = "inline-block";
+}
+
 // draw the logo at first load
-drawLogo();
+updateCANVS();
+updateSVG();
+updatePNG();

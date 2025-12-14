@@ -10,7 +10,7 @@ colPickLogoTop.value = "#01050e";
 colPickLogoBottom.value = "#007db2";
 colPickLogo1.value = "#ffffff";
 colPickLogo0.value = "#000000";
-sizePickLogo.value = 1000;
+sizePickLogo.value = size;
 
 addEventListener("input", (event) => {
   logoTopColor = colPickLogoTop.value;
@@ -19,6 +19,7 @@ addEventListener("input", (event) => {
   logoMain0 = colPickLogo0.value;
   size = sizePickLogo.value;
 
-  drawLogo();
+  updateCANVS();
   updateSVG();
+  updatePNG();
 });

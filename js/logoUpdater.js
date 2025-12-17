@@ -144,10 +144,10 @@ function showLogo(logoId, divId) {
     child.style.display = "none";
   });
 
+  // draw the logo at button click
+  updateCANVS();
+  updateSVG();
+  updatePNG();
+
   logo.style.display = "inline-block";
 }
-
-// draw the logo at first load
-updateCANVS();
-updateSVG();
-updatePNG();

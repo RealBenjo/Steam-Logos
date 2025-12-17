@@ -4,6 +4,9 @@ var logoTopColor = "#01050e";
 var logoBottomColor = "#007db2";
 var logoMain0 = "#000000";
 var logoMain1 = "#ffffff";
+// suboptimal optimization
+var isImg;
+var isCanvas;
 
 // svg elements
 const steam_logo_svg = document.getElementById("steamLogoSVG");
@@ -17,6 +20,8 @@ const bottomGradColor = document.getElementById("bottomSvgColor");
 const steam_logo_png = document.getElementById("steamLogoPNG");
 
 function updateSVG() {
+  console.log("SVG drawn");
+
   steam_logo_svg.setAttribute("width", size);
   steam_logo_svg.setAttribute("height", size);
   handle_circles.setAttribute("fill", logoMain0);
@@ -26,11 +31,14 @@ function updateSVG() {
 }
 
 function updatePNG() {
+  console.log("PNG drawn");
   steam_logo_png.width = size;
   steam_logo_png.height = size;
 }
 
 function updateCANVS() {
+  console.log("CANVAS drawn");
+
   // get canvas and context
   var c = document.getElementById("steamLogoCanvas");
   var ctx = c.getContext("2d");
@@ -127,6 +135,9 @@ function updateCANVS() {
 function showLogo(logoId, divId) {
   const parentDiv = document.getElementById(divId);
   const logo = document.getElementById(logoId);
+
+  isImg = (logo.nodeName.toLowerCase() === 'img');
+  isCanvas = (logo.nodeName.toLowerCase() === 'canvas');
 
   // hides all children of the parent div
   Array.from(parentDiv.children).forEach(child => {

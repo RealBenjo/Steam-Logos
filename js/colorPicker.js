@@ -19,7 +19,12 @@ addEventListener("input", (event) => {
   logoMain0 = colPickLogo0.value;
   size = sizePickLogo.value;
 
-  updateCANVS();
-  updateSVG();
-  updatePNG();
+  // only draw the currently displayed image
+  if (isImg) {
+    updatePNG();
+  } else if (isCanvas) {
+    updateCANVS();
+  } else {
+    updateSVG();
+  }
 });

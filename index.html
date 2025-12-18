@@ -6,7 +6,6 @@
   <title id="title">Steam logos</title>
   <link rel="icon" href="images/steamicon.ico">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <input type="color" id="logoColorTop">
@@ -15,6 +14,7 @@
   <input type="color" id="logoColor0">
   <input type="range" min="10" max="3000" class="slider" id="logoSize" style="width: 500px;">
   <br>
+
   <button onclick="showLogo('steamLogoCanvas', 'logoDiv')">show logo (CANVAS)</button>
   <button onclick="showLogo('steamLogoSVG', 'logoDiv')">show logo (SVG)</button>
   <button onclick="showLogo('steamLogoPNG', 'logoDiv')">show logo (PNG)</button>
@@ -23,7 +23,7 @@
     <canvas id="steamLogoCanvas" style="display: none;">
       if you are seeing this text, the canvas was not loaded properly
     </canvas>
-    
+    <!--
     <svg id="steamLogoSVG" style="display: none;"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:svg="http://www.w3.org/2000/svg"
@@ -196,11 +196,18 @@
                751.23,957.16 619.68,998.93 541.00,1000.00
                541.00,1000.00 457.00,1000.00 457.00,1000.00
                266.39,998.03 71.49,830.98 23.00,654.00 Z" />
-    </svg>
-
+    </svg>-->
+    <div id="SVG_logo_handler"></div>
+    <script src="images/logo_steam.js"></script>
+    <script>
+      document.getElementById("SVG_logo_handler").innerHTML = SVGLogoHandler;
+    </script>
+    
     <img src="images/logo_steam.png" id="steamLogoPNG" style="display: none;">
   </div>
+  
 
+  <script src="images/logo_steam.js" width="1000" height="1000"></script>
 
   <!-- IMPORTANT SCRIPTS -->
   <script src="js/logoUpdater.js"></script>

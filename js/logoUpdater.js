@@ -20,8 +20,6 @@ const bottomGradColor = document.getElementById("bottomSvgColor");
 const steam_logo_png = document.getElementById("steamLogoPNG");
 
 function updateSVG() {
-  console.log("SVG drawn");
-
   steam_logo_svg.setAttribute("width", size);
   steam_logo_svg.setAttribute("height", size);
   handle_circles.setAttribute("fill", logoMain0);
@@ -31,7 +29,6 @@ function updateSVG() {
 }
 
 function updatePNG() {
-  console.log("PNG drawn");
   steam_logo_png.width = size;
   steam_logo_png.height = size;
 }

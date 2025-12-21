@@ -20,24 +20,35 @@ const bottomGradColor = document.getElementById("bottomSvgColor");
 const steam_logo_png = document.getElementById("steamLogoPNG");
 
 function updateSVG() {
-  steam_logo_svg.setAttribute("width", size);
-  steam_logo_svg.setAttribute("height", size);
-  handle_circles.setAttribute("fill", logoMain0);
-  handles.setAttribute("fill", logoMain1);
-  topGradColor.setAttribute("stop-color", logoTopColor);
-  bottomGradColor.setAttribute("stop-color", logoBottomColor);
-}
+  const svg = document.getElementById("steamLogoSVG");
+  const hc = document.getElementById("handle_circles");
+  const hs = document.getElementById("handles");
+  const os = document.getElementById("outer_section");
+  const tgc = document.getElementById("topSvgColor");
+  const bgc = document.getElementById("bottomSvgColor");
+
+  // return if missing SVG pieces
+  if (!svg || !hc || !hs || !os || !tgc || !bgc) return;
+
+  svg.setAttribute("width", size);
+  svg.setAttribute("height", size);
+  hc.setAttribute("fill", logoMain0);
+  hs.setAttribute("fill", logoMain1);
+  tgc.setAttribute("stop-color", logoTopColor);
+  bgc.setAttribute("stop-color", logoBottomColor);
+} 
 
 function updatePNG() {
-  steam_logo_png.width = size;
-  steam_logo_png.height = size;
-}
+  const png = document.getElementById("steamLogoPNG");
+  if (!png) return;
+  png.width = size;
+  png.height = size;
+} 
 
 function updateCANVS() {
-  console.log("CANVAS drawn");
-
   // get canvas and context
   var c = document.getElementById("steamLogoCanvas");
+  if (!c) return; // canvas missing (SVG injection may have removed it)
   var ctx = c.getContext("2d");
 
   // set the canvas size so the logo fits into it
@@ -131,7 +142,21 @@ function updateCANVS() {
 
 function showLogo(logoId, divId) {
   const parentDiv = document.getElementById(divId);
-  const logo = document.getElementById(logoId);
+  if (!parentDiv) return;
+
+  let logo = document.getElementById(logoId);
+
+  // If canvas was requested but missing, create it dynamically
+  if (!logo && logoId === 'steamLogoCanvas') {
+    const c = document.createElement('canvas');
+    c.id = 'steamLogoCanvas';
+    c.style.display = 'none';
+    parentDiv.insertBefore(c, parentDiv.firstElementChild || null);
+    logo = c;
+    console.debug('Created missing canvas#steamLogoCanvas');
+  }
+
+  if (!logo) return;
 
   isImg = (logo.nodeName.toLowerCase() === 'img');
   isCanvas = (logo.nodeName.toLowerCase() === 'canvas');
@@ -141,10 +166,14 @@ function showLogo(logoId, divId) {
     child.style.display = "none";
   });
 
-  // draw the logo at button click
-  updateCANVS();
-  updateSVG();
-  updatePNG();
+  // update only the active logo type
+  if (isCanvas) {
+    updateCANVS();
+  } else if (isImg) {
+    updatePNG();
+  } else {
+    updateSVG();
+  }
 
   logo.style.display = "inline-block";
 }

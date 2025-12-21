@@ -1,5 +1,5 @@
 const LogoSVGCode = `
-<svg id="steamLogoSVG"
+<svg id="steamLogoSVG" style="display: none;"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:svg="http://www.w3.org/2000/svg"
         version="1.1"
@@ -173,3 +173,4 @@ const LogoSVGCode = `
                266.39,998.03 71.49,830.98 23.00,654.00 Z" />
     </svg>
     `;
+document.getElementById("logoDiv").insertAdjacentHTML('beforeend', LogoSVGCode);

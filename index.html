@@ -16,8 +16,10 @@
   <br>
 
   <button onclick="showLogo('steamLogoCanvas', 'logoDiv')">show logo (CANVAS)</button>
-  <button onclick="showLogo('SVG_logo_handler', 'logoDiv')">show logo (SVG)</button>
+  <button onclick="showLogo('steamLogoSVG', 'logoDiv')">show logo (SVG)</button>
   <button onclick="showLogo('steamLogoPNG', 'logoDiv')">show logo (PNG)</button>
+
+  <br>
 
   <div id="logoDiv">
     <!-- CANVAS -->
@@ -26,11 +28,7 @@
     </canvas>
     
     <!-- SVG -->
-    <div id="SVG_logo_handler" style="display: none;"></div>
     <script src="images/logo_steam.js"></script>
-    <script>
-      document.getElementById("SVG_logo_handler").innerHTML = LogoSVGCode;
-    </script>
     
     <!-- PNG -->
     <img src="images/logo_steam.png" id="steamLogoPNG" style="display: none;">

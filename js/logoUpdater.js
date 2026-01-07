@@ -144,6 +144,20 @@ function showLogo(logoId, divId) {
   const parentDiv = document.getElementById(divId);
   if (!parentDiv) return;
 
+  switch (logoId) {
+    case 'steamLogoSVG':
+      document.getElementById("info-text").innerText = "Currently displaying logo as: SVG (Scalable Vector Graphics). It is an XML-based, web-friendly file format for describing two-dimensional vector graphics that can be scaled infinitely without losing quality.";
+      break;
+    case 'steamLogoPNG':
+      document.getElementById("info-text").innerText = "Currently displaying logo as: PNG (Portable Network Graphics). It is a raster-graphics file format that supports lossless data compression. PNG supports palette-based images (with palettes of 24-bit RGB or 32-bit RGBA colors). It however can't be manipulated via scripts like SVG or Canvas.";
+      break;
+    case 'steamLogoCanvas':
+      document.getElementById("info-text").innerText = "Currently displaying logo as: Canvas. It allows for dynamic, scriptable rendering of 2D shapes and bitmap images. Introduced in HTML5, it is a low level, procedural model that updates a bitmap. The <canvas> element also helps in making 2D games.";
+      break;
+    default:
+      document.getElementById("info-text").innerText = "Currently displaying logo as: Nothing";
+  }
+
   let logo = document.getElementById(logoId);
 
   // If canvas was requested but missing, create it dynamically

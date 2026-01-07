@@ -1,0 +1,37 @@
+#logoDiv {
+  width: 630px;
+  height: 630px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.w3-row {
+  margin-bottom: 20px !important;
+}
+
+.content {
+  width: 100vw;
+  margin: 0;
+}
+
+.color-picker-container {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.color-row {
+  display: flex;
+  align-items: center;
+}
+
+.color-row p {
+  margin: 0;
+}
+
+.color-row input {
+  margin-left: auto; /* pushes input to the right */
+}

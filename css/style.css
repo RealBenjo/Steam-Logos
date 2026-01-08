@@ -1,37 +1,468 @@
-#logoDiv {
-  width: 630px;
-  height: 630px;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #1f2428;
+  font-family: sans-serif;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+
+h3{
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: normal;
+}
+p{
+  margin: 9px 0;
+}
+a{
+  text-decoration: none;
+  color: #ffffff;
+}
+a:hover{
+  text-decoration: none;
+  color: #66c0f4;
+}
+input{
+  background: #32353C;
+  color: #E9E9E9;
+  border-radius: 3px;
+  width: 100%;
+  padding: 8px 6px;
+  display: block;
+  border: none;
+}
+#i_agree_check{
+  width: auto;
+  display: inline;
+}
+select{
+  width: 100%;
+  background: #32353C;
+  border-radius: 3px;
+  color: #E9E9E9;
+  padding: 8px 6px;
+  display: block;
+  box-shadow: none;
+  border: none;
+  transition: border ease-in-out .5s;
+}
+li{
+  color: #ffffff;
+}
+
+
+/* header divs */
+#header{
+  background: #171d25;
+  font-size: 14px;
+  
+  width: 100vw;
+  height: 104px; /* steam number, don't ask*/
+}
+#centered_header{
+  height: 104px;
   margin: 0 auto;
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.w3-row {
-  margin-bottom: 20px !important;
+#logo{
+  width: 176px;
+  height: 44px;
+}
+#supernav_container a{
+  color: #C6D4DF;
+  margin: 0 3px;
+}
+#header_login_button{
+  color: #c9c9c9;
+  background-color: transparent;
+  
+  border: 1px solid #253644;
+  margin-left: 100px;
+  height: 30px;
+  font-size: 14px;
+  border: none;
+}
+#header_login_button:hover{
+  color: #ffffff;
+  cursor: pointer;
 }
 
-.content {
-  width: 100vw;
-  margin: 0;
+/* main divs are down here */
+#main{
+  width: 100%;
+  height: calc(100vh - 199px);
+  position: relative; 
+  background-color: #171a21;
+  overflow: hidden; 
 }
 
-.color-picker-container {
-  padding: 40px;
+/* background on a pseudo-element to mask only bg not the whole page */
+#main::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-position: center;
+  background-size: 85%;
+  background-repeat: no-repeat; /* to be sure (menacing) */
+}
+
+/* i love vignette */
+#main::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  /* vignette */
+  background: radial-gradient(circle at center, rgba(0,0,0,0) 35%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.75) 100%);
+}
+
+#login_content input{
+  margin-top: 4px;
+}
+
+#centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 855px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+
+/* login divs */
+#main_centered{
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 auto;
+  width: 700px;
+  height: 100%;
+  position: relative; /* anchor for the absolute-positioned heading */
+  z-index: 2; /* ensure content sits above the vignette overlay */
 }
+#login_div{
+  color: #b8b6b4;
+  background-color: #171a21;
+  border-radius: 4px;
 
-.color-row {
+  width: 100%;
+  height: 335px;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  font-weight: normal;
+  padding: 12px 0px 12px 30px;
+}
+#login_title h3{
+  font-size: 32px;
+  font-weight: bolder;
+}
+#login_content{
+  width: 60%;
+  height: 100%;
+  float: left;
+}
+#usr_label{
+  color: #1999ff;
+  font-weight: bold;
+}
+input[type="checkbox"]#remember_me:checked + label[for="remember_me"]::after{
+  opacity: 1;
+}
+/* hover */
+label[for="remember_me"]:hover::before{
+  filter: brightness(1.3);
+}
+#rememberme_label{
+  color: #b3b3b3;
+  margin-left: 0;
+}
+#username{
+  width: 95%;
+}
+#username:hover{
+  background-color: #42454c;
+}
+#passwordr{
+  width: 95%;
+}
+#passwordl{
+  width: 95%;
+}
+#passwordl:hover{
+  background-color: #42454c;
+}
+#password{
+  width: 100%;
+}
+#password:hover{
+  background-color: #42454c;
+}
+#login_button{
+  color: #d6ebfb;
+  background: linear-gradient( to right, #47bfff 5%, #1a44c2 100%);
+    
+  width: 70%;
+  height: 40px;
+  text-shadow: 1px 1px 0px rgba( 0, 0, 0, 0.3 );
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 2px;
+}
+#login_button:hover{
+  cursor: pointer;
+  background: linear-gradient( to right, #47bfff 5%, #1a44c2 60%);
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+  background-size: 330% 100%;
+  color: #ffffff;
+}
+#qr_content{
+  width: 40%;
+  height: 100%;
+  float: right;
+}
+#qr_p{
+  text-align: center;
+  color: #1999ff;
+  margin: 0;
+  font-weight: bold;
+}
+.login_a{
+  text-decoration: underline;
+  color: #b8b6b4;
+}
+.login_a:hover{
+  text-decoration: underline;
+  color: #c9c9c9;
+}
+#qr_code{
+  background-color: #ffffff;
+
+  width: 200px;
+  height: 200px;
+
+/* place the small heading visually above the login box */
+.login_heading{
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  pointer-events: none; /* heading shouldn't intercept clicks */
+}
+.login_heading h3{
+  margin: 0;
+  padding: 6px 12px;
+  background: #171a21;
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: 400;
+  pointer-events: auto; /* allow selection if needed */
+}
+/* give the login box a little extra top padding so its content isn't covered */
+#login_div{ padding-top: 12px; }
+
+  border-radius: 8px;
+
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.color-row p {
-  margin: 0;
+
+/* footer divs */
+#footer{
+  background: #171d25;
+  font-size: 14px;
+  
+  width: 100vw;
+  height: 95px;
+}
+#centered_footer{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 900px;
+  margin: 0 auto;
+}
+#centered_footer a{
+  color: #C6D4DF;
+}
+#centered_footer a:hover{
+  color: #ffffff;
+}
+#valve_logo{
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#footer_container{
+  width: 85%;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 2px 0;
+  color: #8F98A0;
+}
+#footer_links a{
+  padding: 10px;
 }
 
-.color-row input {
-  margin-left: auto; /* pushes input to the right */
+
+
+/* HANDLES RESPONSIVENESS */
+@media (max-width: 1500px) {
+  #main{
+    height: calc(100vh - 234px);
+  }
+  #register_main{
+    height: calc(100vh - 234px); /* TODO: include footer here too! */
+  }
+  #centered{
+    max-width: 855px;
+    padding: 50px;
+    margin: 0 auto;
+  }
+
+  #footer{
+    display: none;
+  }
+}
+
+@media (max-width: 1300px) {
+  #register_main{
+    background-position: -6969420px 0; /*yummy arbitrary number :)*/
+    height: 600px;
+  }
+
+  select{
+    width: 100%;
+  }
+
+  .form_area{
+    width: 100%;
+  }
+
+  #centered{
+    padding: 30px 15px;
+  }
+
+  #form_div{
+    padding: 20px 16px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #b8b6b4;
+    vertical-align: top;
+    font-weight: normal;
+  }
+
+  #viewAgreementButton{
+    width: 70%;
+  }
+
+  .createAccountButton{
+    width: 100%;
+  }
+
+  #create_account_div{
+    width: 100%;
+    margin-top: 35px;
+  }
+
+  #form_title h1{
+    font-size: 29px;
+  }
+
+  #supernav_container{
+    display: none;
+  }
+
+  #main{
+    width: 100%;
+    height: 850px;
+    /* keep layout/background-size controlled on the pseudo-element */
+  }
+  #login_div{
+    background-color: transparent;
+    width: 100%;
+    height: 724px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0;
+  }
+  #main_centered{
+    width: 100%;
+    height: 100%;
+    gap: 30px;
+  }
+  #login_content{
+    width: 100%;
+    height: 80%;
+  }
+  #login_form{
+    width: 100%;
+    height: 52%;
+    margin-bottom: 20px;
+  }
+  #username{
+    width: 75%;
+  }
+  #passwordl{
+    width: 75%;
+  }
+  .form_area_centered{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form_area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #qr_content{
+    width: 100%;
+    height: 48%;
+  }
+
+  #ca_footer{
+    height: 250px;
+    width: 100%;
+  }
+  #centered_ca_footer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+  }
+  #first{
+    padding: 0 10px;
+  }
+  #second{
+    padding: 0 10px;
+  }
+
+  #footer{
+    display: none;
+  }
 }

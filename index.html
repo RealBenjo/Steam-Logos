@@ -3,88 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="title">Steam logos</title>
+  <title id="title">Sign in</title>
   <link rel="icon" href="images/steamicon.ico">
-
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  <!-- !PAGE CONTENT! -->
-  <div class="content">
+  <!-- HEADER -->
+  <div id="header">
+    <div id="centered_header">
+      <div id="logo">
+        <a href="https://store.steampowered.com" target="_blank"><img src="images/logo_steam.svg" width="176" height="44" alt="Link to the Steam Homepage"></a>
+      </div>
+      <div id="supernav_container">
+        <a href="https://store.steampowered.com/" target="_blank">STORE</a>
+        <a href="https://steamcommunity.com/" target="_blank">COMMUNITY</a>
+        <a href="https://store.steampowered.com/about/" target="_blank">ABOUT</a>
+        <a href="https://help.steampowered.com/en/" target="_blank">SUPPORT</a>
+      </div>
+    </div>
+  </div>
 
-    <!-- Header -->
-    <div class="w3-opacity">
-      <div class="w3-clear"></div>
-      <header class="w3-center w3-margin-bottom">
+
+  <!-- LOGIN -->
+  <div id="main">
+    <div id="main_centered">
+      <div id="main_header">
         <h1><b>STEAM LOGOS</b></h1>
         <p><b>A display of how the canvas, svg and png elements behave</b></p>
-      </header>
-    </div>
-
-    <!-- Photo Grid -->
-    <div class="w3-row" style="margin-bottom:128px">
-
-      <div class="w3-third" style="padding: 40px;">
-        <input type="range" min="10" max="600" class="slider" id="logoSize" style="width: 100%;">
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <button onclick="showLogo('steamLogoCanvas', 'logoDiv')">show logo (CANVAS)</button>
-          <button onclick="showLogo('steamLogoSVG', 'logoDiv')">show logo (SVG)</button>
-          <button onclick="showLogo('steamLogoPNG', 'logoDiv')">show logo (PNG)</button>
-        </div>
-      </div>
-
-      <div class="w3-third color-picker-container" style="font-size: large;">
-
-        <div class="color-row">
-          <p>the top color</p>
-          <input type="color" id="logoColorTop">
-        </div>
-
-        <div class="color-row">
-          <p>the bottom color</p>
-          <input type="color" id="logoColorBottom">
-        </div>
-
-        <div class="color-row">
-          <p>the handle color</p>
-          <input type="color" id="logoColor1">
-        </div>
-
-        <div class="color-row">
-          <p>the small circle color</p>
-          <input type="color" id="logoColor0">
-        </div>
-
-      </div>
-
-
-      <div class="w3-third w3-opacity" style="font-size: large; padding: 10px;">
-        <p id="info-text">Currently NOT displaying the Steam logo</p>
       </div>
     </div>
+  </div>
+
+  <!--                                          !!!stuff to implement starts here!!!                                        -->
+  <button onclick="showLogo('steamLogoCanvas', 'logoDiv')">show logo (CANVAS)</button>
+  <button onclick="showLogo('steamLogoSVG', 'logoDiv')">show logo (SVG)</button>
+  <button onclick="showLogo('steamLogoPNG', 'logoDiv')">show logo (PNG)</button>
+
+  <div>
+    <div class="color-row">
+      <p>the top color</p>
+      <input type="color" id="logoColorTop">
+    </div>
+
+    <div class="color-row">
+      <p>the bottom color</p>
+      <input type="color" id="logoColorBottom">
+    </div>
+
+    <div class="color-row">
+      <p>the handle color</p>
+      <input type="color" id="logoColor1">
+    </div>
+
+    <div class="color-row">
+      <p>the small circle color</p>
+      <input type="color" id="logoColor0">
+    </div>
+  </div>
 
     
-    <div id="logoDiv">
-      <!-- CANVAS -->
-      <canvas id="steamLogoCanvas" style="display: none;">
-        if you are seeing this text, the canvas was not loaded properly
-      </canvas>
-      
-      <!-- SVG -->
-      <script src="images/logo_steam.js"></script>
-      
-      <!-- PNG -->
-      <img src="images/logo_steam.png" id="steamLogoPNG" style="display: none;">
-    </div>
-  
-  <!-- !End Page Content! -->
+  <div id="logoDiv">
+    <!-- CANVAS -->
+    <canvas id="steamLogoCanvas" style="display: none;">
+      if you are seeing this text, the canvas was not loaded properly
+    </canvas>
+    
+    <!-- SVG -->
+    <script src="images/logo_steam.js"></script>
+    
+    <!-- PNG -->
+    <img src="images/logo_steam.png" id="steamLogoPNG" style="display: none;">
   </div>
 
   <!-- IMPORTANT SCRIPTS -->
   <script src="js/logoUpdater.js"></script>
   <script src="js/colorPicker.js"></script>
+
+  <!--                                          !!!stuff to implement ends here!!!                                        -->
+
+  <div id="footer">
+    <div id="centered_footer">
+      <div id="valve_logo">
+        <a href="https://www.valvesoftware.com/en/" target="_blank"><img src="images/valve_logo.png" alt="valve_logo"></a>
+      </div>
+      <div id="footer_container">
+        <div id="footer_content">
+          <p>© Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.<br>
+          Some geospatial data on this website is provided by <a href="http://www.geonames.org/" target="_blank">geonames.org</a>.</p> 
+        </div>
+        <div id="footer_links">
+          <a href="http://store.steampowered.com/privacy_agreement/" target="_blank">Privacy Policy</a>|
+          <a href="https://store.steampowered.com/legal/" target="_blank">Legal</a>|
+          <a href="https://help.steampowered.com/faqs/view/10BB-D27A-6378-4436" target="_blank">Accessibility</a>|
+          <a href="http://store.steampowered.com/subscriber_agreement/" target="_blank">Steam Subscriber Agreement</a>|
+          <a href="http://store.steampowered.com/account/cookiepreferences/" target="_blank">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
